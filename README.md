@@ -1,5 +1,11 @@
 # mx
 
+Licensed under MIT License
+Copyright (c) Grady O'Connell, 2013
+
+C++ coroutine await, yield, channels, i/o events (single header + link to boost)
+
+    
 This was originally part of my c++ util library [kit](https://github.com/flipcoder/kit), but I'm separating it.
 
 It's "single header" but requires you link to some boost libs.
