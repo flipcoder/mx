@@ -2,14 +2,12 @@
 
 C++ coroutine await, yield, channels, i/o events (single header + link to boost).
 
-This is a prototype.
-
 This was originally part of my c++ util library [kit](https://github.com/flipcoder/kit), but I'm separating it.  I haven't
 moved the net/socket stuff yet, but check out [kit's net.h sockets](https://github.com/flipcoder/kit/blob/master/kit/net/net.h) to see how to use this in that context.
 
 It's "single header" but requires you link to some boost libs.
 
-This is a prototype. There are still issues with stability and lack of features, maybe even thread safety. You've been warned!
+**This is a prototype.** There are still issues with stability and lack of features, maybe even thread safety. You've been warned!
 This should serve as a proof-of-concept regardless.
 
 Here are the basics: there is a singleton i/o multiplexer (i.e. "MX") which is initialized on first usage.
@@ -73,5 +71,5 @@ Open-source under MIT License.
 
 See LICENSE file for details.
 
-Copyright (c) Grady O'Connell, 2013
+Copyright (c) Grady O'Connell, 2018
 
