@@ -59,6 +59,8 @@ MX[0].coro<void>([&]{
 
 ```
 
+I don't have documentation of all features, check out mx.h if you're brave.
+
 ## Future
 
 Currently, you can await one or more futures in a circuit, but this causes a polling situation that requires a stabizing timer
@@ -72,4 +74,5 @@ Open-source under MIT License.
 See LICENSE file for details.
 
 Copyright (c) Grady O'Connell, 2013
+
 
