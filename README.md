@@ -20,7 +20,7 @@ You can use local_shared_ptrs if you want, since these circuits operate on a sin
 
 I don't have a way to awaken tasks on different circuits yet.
 
-If you're familiar with Go, MX[0].coro<void> is similar to using "go" with
+If you're familiar with Go, MX[0].coro\<void\> is similar to using "go" with
 a void() lambda.
 
 ```c++
