@@ -71,5 +71,5 @@ Open-source under MIT License.
 
 See LICENSE file for details.
 
-Copyright (c) Grady O'Connell, 2018
+Copyright (c) Grady O'Connell, 2013
 
