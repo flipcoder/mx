@@ -30,6 +30,7 @@ workspace("mx")
                 "pthread",
                 "boost_system",
                 "boost_chrono",
+                "boost_thread",
                 "boost_coroutine",
             }
             includedirs {

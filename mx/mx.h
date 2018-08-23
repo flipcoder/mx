@@ -306,6 +306,9 @@ typedef boost::coroutines::coroutine<void>::push_type push_coro_t;
         }\
     }()
 
+// TODO: deduce type?
+//#define MX_GO(ID,TYPE) MX[ID].coro<TYPE>
+
 #define MX_AWAIT_HINT(HINT, EXPR) MX_AWAIT_HINT_MX(MUX, HINT, EXPR)
 
 // coroutine async sleep()
@@ -406,7 +409,7 @@ class mx_io
                 }
             }
 
-            template<class T = void>
+            template<class T=void>
             std::future<T> coro(std::function<T()> cb) {
                 while(true) {
                     boost::this_thread::interruption_point();

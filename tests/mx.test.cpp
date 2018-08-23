@@ -1,14 +1,9 @@
 #include <catch.hpp>
-#include "../mx/mx.h"
-//#include "../mx/async/async.h"
-//#include "../mx/async/async_fstream.h"
-//#include "../include/mx/async/task.h"
-//#include "../include/mx/async/.h"
-//#include "../include/mx/async/multiplexer.h"
 #include <atomic>
 #include <vector>
 #include <boost/thread.hpp>
 #include <boost/chrono.hpp>
+#include "../mx/mx.h"
 using namespace std;
 
 #define LOCK_WAIT_MS 10
@@ -474,8 +469,10 @@ TEST_CASE("async_wrap","[async_wrap]") {
 
 TEST_CASE("Temp","[temp]") {
     SECTION("Some quick tests for debugging"){
-        mx_io mx;
-        mx.finish();
+        //mx_io mx;
+        MX[0].coro<void>([]{});
+        
+        MX.finish();
     }
 }
 
