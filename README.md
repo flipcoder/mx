@@ -16,7 +16,7 @@ The number of circuits is by default set to your core count, but wraps back arou
 You give the "circuit number" you wish to operate on.  This index is a hint on how the separte the tasks across
 cores.  Because of the wraping, numbers that are closer together are more likely to be put on a different core.
 
-You can use local_shared_ptrs if you want, since these circuits operate on a single thread.
+You can use local_shared_ptrs if you want, since each circuits operate on a single thread.
 
 I don't have a way to awaken tasks on different circuits yet.
 

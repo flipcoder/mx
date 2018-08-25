@@ -691,7 +691,6 @@ class mx_io
         }
 
         Circuit& any_circuit(){
-            // TODO: load balancing would be nice here
             return *std::get<0>((m_Circuits[std::rand() % m_Concurrency]));
         }
         
@@ -771,7 +770,6 @@ class mx_io
         std::vector<std::tuple<std::unique_ptr<Circuit>, CacheLinePadding>> m_Circuits;
         //std::unique_ptr<Circuit> m_Multicircuit;
 
-        // read-write mutex might be more optimal here
         mx_mutex_wrap<std::map<boost::thread::id, unsigned>> m_ThreadToCircuit;
 };
 

@@ -8,6 +8,10 @@ using namespace std;
 
 #define LOCK_WAIT_MS 10
 
+// NOTE: These tests avoid usage of the singleton MX.
+// Therefore the macros are different than the recommended usage.
+// MX_AWAIT_MX(mx,...) should be MX_AWAIT(...), etc.
+
 TEST_CASE("mx_task","[task]") {
     SECTION("empty task"){
         mx_task<void()> task([]{
@@ -35,7 +39,7 @@ TEST_CASE("mx_task","[task]") {
     }
 }
 
-TEST_CASE("mx_channel","[]") {
+TEST_CASE("mx_channel","[channel]") {
     SECTION("basic usage"){
         mx_channel<int> chan;
         REQUIRE(chan.size() == 0);
