@@ -4,7 +4,6 @@
 #include <boost/thread.hpp>
 #include <boost/noncopyable.hpp>
 #include <boost/coroutine/all.hpp>
-#include <boost/smart_ptr/make_local_shared.hpp>
 #include <algorithm>
 #include <atomic>
 #include <deque>
@@ -397,7 +396,7 @@ class mx_io
                         if(!m_Buffered || m_Units.size() < m_Buffered) {
                             auto cbt = mx_task<T()>(std::move(cb));
                             auto fut = cbt.get_future();
-                            auto cbc = boost::make_local_shared<mx_task<T()>>(std::move(cbt));
+                            auto cbc = std::make_shared<mx_task<T()>>(std::move(cbt));
                             m_Units.emplace_back(cond, [cbc]() {
                                 (*cbc)();
                             });
@@ -418,7 +417,7 @@ class mx_io
                         if(!m_Buffered || m_Units.size() < m_Buffered) {
                             auto cbt = mx_task<T()>(std::move(cb));
                             auto fut = cbt.get_future();
-                            auto cbc = boost::make_local_shared<mx_task<T()>>(std::move(cbt));
+                            auto cbc = std::make_shared<mx_task<T()>>(std::move(cbt));
                             m_Units.emplace_back(
                                 std::function<bool()>(),
                                 std::function<void()>()
@@ -462,7 +461,7 @@ class mx_io
             //std::shared_ptr<mx_channel<T>> channel(
             //    std::function<void(std::shared_ptr<mx_channel<T>>)> worker
             //) {
-            //    auto chan = boost::make_shared<mx_channel<>>();
+            //    auto chan = std::make_shared<mx_channel<>>();
             //    // ... inside lambda if(chan->closed()) remove?
             //}
             
@@ -470,7 +469,7 @@ class mx_io
 
             template<class R, class T>
             std::future<R> when(std::future<T>& fut, std::function<R(std::future<T>&)> cb) {
-                auto futc = boost::make_local_shared<std::future<T>>(std::move(fut));
+                auto futc = std::make_shared<std::future<T>>(std::move(fut));
                 
                 return task<void>([cb, futc]() {
                     if(futc->wait_for(std::chrono::seconds(0)) ==
