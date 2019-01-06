@@ -60,9 +60,9 @@ I don't have documentation of all features, check out mx.h if you're brave.
 
 ## Future
 
-Currently, you can await one or more futures in a circuit, but this causes a polling situation that requires a stabizing timer
-to prevent wasting the CPU.  Having a list of futures that respond to callbacks instead of being polled, would be the next thing
-to implement if I were to continue this project.
+Currently, you can await more than one future in a circuit, but this causes a polling situation that requires a stabizing timer
+to prevent wasting the CPU.  The next thing to add would be utilizing a shared method of polling (such as libuv)
+and responding to user futures through callbacks instead of being polled.
 
 ## LICENSE
 
